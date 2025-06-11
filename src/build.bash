@@ -5,5 +5,6 @@ g++ src/main.cpp \
     src/obstacle.cpp \
     src/block.cpp \
     src/alien.cpp \
+    src/mysteryship.cpp \
     -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 \
     -o main
