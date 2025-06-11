@@ -29,4 +29,5 @@ class Game {
         MysteryShip mysteryShip;
         float mysteryShipSpawnInterval;
         float timeLastSpawn;
+        void CheckCollisions();
 };
