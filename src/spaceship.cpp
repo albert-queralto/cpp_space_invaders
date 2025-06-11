@@ -5,7 +5,7 @@ Spaceship::Spaceship()
 {
     image = LoadTexture("assets/images/spaceship.png");
     position.x = (GetScreenWidth() - image.width) / 2.0f;
-    position.y = GetScreenHeight() - image.height - 10;
+    position.y = GetScreenHeight() - image.height - 100;
     lastFireTime = 0.0;
 }
 
@@ -22,16 +22,16 @@ void Spaceship::Draw()
 void Spaceship::MoveLeft()
 {
     position.x -= 7.0f;
-    if (position.x < 0) {
-        position.x = 0; // Prevent moving out of bounds
+    if (position.x < 25) {
+        position.x = 25; // Prevent moving out of bounds
     }
 }
 
 void Spaceship::MoveRight()
 {
     position.x += 7.0f;
-    if (position.x > GetScreenWidth() - image.width) {
-        position.x = GetScreenWidth() - image.width; // Prevent moving out of bounds
+    if (position.x > GetScreenWidth() - image.width - 25) {
+        position.x = GetScreenWidth() - image.width - 25; // Prevent moving out of bounds
     }
 }
 
@@ -52,7 +52,7 @@ Rectangle Spaceship::getRect()
 void Spaceship::Reset()
 {
     position.x = (GetScreenWidth() - image.width) / 2.0f;
-    position.y = GetScreenHeight() - image.height - 10;
+    position.y = GetScreenHeight() - image.height - 100;
     lastFireTime = 0.0;
     lasers.clear(); // Clear all lasers
 }

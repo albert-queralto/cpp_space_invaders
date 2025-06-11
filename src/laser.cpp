@@ -18,7 +18,7 @@ void Laser::Update()
 {
     position.y += speed;
     if(active) {
-        if (position.y < 0 || position.y > GetScreenHeight()) {
+        if (position.y < 25 || position.y > GetScreenHeight() - 100) {
             active = false; // Deactivate laser if it goes out of bounds
             // std::cout << "Laser Inactive" << std::endl;
         }

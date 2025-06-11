@@ -12,6 +12,7 @@ class Game {
         void Update();
         void HandleInput();
         bool run;
+        int lives;
 
     private:
         Spaceship spaceship;
@@ -31,7 +32,6 @@ class Game {
         float mysteryShipSpawnInterval;
         float timeLastSpawn;
         void CheckCollisions();
-        int lives;
         void GameOver();
         void Reset();
         void InitGame();
