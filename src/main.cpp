@@ -15,6 +15,8 @@ int main() {
     int windowWidth = 750;
     int windowHeight = 700;
     InitWindow(windowWidth + offset, windowHeight + 2 * offset, "C++ Space Invaders");
+    InitAudioDevice();
+    
     Font font = LoadFontEx("assets/fonts/monogram.ttf", 64, 0, 0);
     Texture2D spaceshipImage = LoadTexture("assets/images/spaceship.png");
     SetTargetFPS(60);
@@ -22,6 +24,7 @@ int main() {
     Game game;
 
     while(WindowShouldClose() == false) {
+        UpdateMusicStream(game.music);
         game.HandleInput();
         game.Update();
         BeginDrawing();
@@ -53,4 +56,5 @@ int main() {
     }
 
     CloseWindow();
+    CloseAudioDevice();
 }

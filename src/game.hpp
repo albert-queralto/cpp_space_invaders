@@ -15,6 +15,7 @@ class Game {
         int lives;
         int score;
         int highScore;
+        Music music;
 
     private:
         Spaceship spaceship;
@@ -40,4 +41,5 @@ class Game {
         void CheckHighScore();
         void SaveHighScoreToFile(int highscore);
         int LoadHighScoreFromFile();
+        Sound explosionSound;
 };
