@@ -16,6 +16,7 @@ class Game {
         int score;
         int highScore;
         Music music;
+        int level;
 
     private:
         Spaceship spaceship;
@@ -29,7 +30,7 @@ class Game {
         int aliensDirection;
         std::vector<Laser> alienLasers;
         void AlienFireLasers();
-        constexpr static float alienLaserFireInterval = 0.35;
+        float alienLaserFireInterval;
         float lastAlienFireTime;
         MysteryShip mysteryShip;
         float mysteryShipSpawnInterval;
@@ -42,4 +43,6 @@ class Game {
         void SaveHighScoreToFile(int highscore);
         int LoadHighScoreFromFile();
         Sound explosionSound;
+        float alienSpeed;
+        void StartNextLevel();
 };

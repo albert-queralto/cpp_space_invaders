@@ -33,7 +33,8 @@ int main() {
         DrawLineEx({25, 730}, {775, 730}, 2, yellow);
         
         if (game.run) {
-            DrawTextEx(font, "LEVEL 01", {570, 740}, 34, 2, yellow);
+            std::string levelText = std::string("LEVEL ") + (game.level < 10 ? "0" : "") + std::to_string(game.level);
+            DrawTextEx(font, levelText.c_str(), {570, 740}, 34, 2, yellow);
         } else {
             DrawTextEx(font, "GAME OVER", {570, 740}, 34, 2, yellow);
             DrawTextEx(font, "Press ENTER to restart", {200, 450}, 32, 2, yellow);

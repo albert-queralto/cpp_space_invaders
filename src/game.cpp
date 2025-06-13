@@ -36,6 +36,10 @@ void Game::Update()
 
         MoveAliens();
 
+        if (aliens.empty()) {
+            StartNextLevel();
+        }
+
         AlienFireLasers();
 
         for (auto& alienLaser : alienLasers) {
@@ -296,7 +300,11 @@ void Game::InitGame()
     run = true;
     score = 0;
     highScore = LoadHighScoreFromFile();
+    level = 1;
+    alienLaserFireInterval = 0.35f;
+    alienSpeed = 1.0f;
 }
+
 
 void Game::CheckHighScore()
 {
@@ -330,6 +338,23 @@ int Game::LoadHighScoreFromFile()
     return loadedHighScore;
 }
 
+void Game::StartNextLevel()
+{
+    level++;
+    alienSpeed = 1.0f + (level - 1) * 0.2f;
+    alienLaserFireInterval = 0.35f - (level - 1) * 0.05f; 
+    Reset();
+    obstacles = CreateObstacles();
+    aliens = CreateAliens();
+    aliensDirection = 1;
+    lastAlienFireTime = 0.0f;
+    mysteryShip.Spawn();
+    timeLastSpawn = 0.0f;
+    mysteryShipSpawnInterval = GetRandomValue(10, 20);
+    run = true;
+    highScore = LoadHighScoreFromFile();
+}
+
 void Game::Reset()
 {
     spaceship.Reset();
@@ -337,3 +362,4 @@ void Game::Reset()
     alienLasers.clear();
     obstacles.clear();
 }
+
